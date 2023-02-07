@@ -4,10 +4,10 @@ const sequelize = require('../config/connection');
 
 
 // Original model name was "User"
-class YourCustomModel extends Model {
+class User extends Model {
 }
 
-YourCustomModel.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -42,8 +42,8 @@ YourCustomModel.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'custom',
+    modelName: 'user',
   }
 );
 
-module.exports = YourCustomModel;
+module.exports = User;
