@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const passport = require('passport');
+const withAuth = require('../../utils/withAuth');
 
 // auth login
 router.get('/login', (req, res) => {
@@ -7,14 +9,26 @@ router.get('/login', (req, res) => {
 
 // auth logout
 router.get('/logout', (req, res) => {
-    // handle with passport
-    res.send('logging out');
+    req.logout((err) => {
+        if(err) {
+            return next(err);
+        }
+    });
+    res.redirect('/');
 });
 
 // auth with google+
-router.get('/google', (req, res) => {
-    // handle with passport
-    res.send('logging in with Google');
-});
+router.get('/google', passport.authenticate("google", {
+    scope: ['profile']
+}));
+
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    console.log(req.user)
+    res.redirect('/auth/login')
+})
+
+router.get('/profiletest', (req, res) => {
+   res.send(req.user)
+})
 
 module.exports = router;
