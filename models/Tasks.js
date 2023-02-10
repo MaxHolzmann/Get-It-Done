@@ -2,7 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 
-// Original model name was "User"
 class Task extends Model {
 }
 
@@ -19,7 +18,7 @@ Task.init(
       allowNull: false
     },
     user_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "user",
