@@ -56,6 +56,7 @@ router.put('/tasks/:id', async (req, res) => {
   }
 })
 
+//delete a task
 router.delete('/tasks/:id', async (req, res) => {
   try {
     await Task.destroy({

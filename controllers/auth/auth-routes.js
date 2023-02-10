@@ -22,11 +22,13 @@ router.get('/google', passport.authenticate("google", {
     scope: ['profile']
 }));
 
+//redirect after logged in
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     console.log(req.user)
     res.redirect('/todo')
 })
 
+//this is a profile test page to test if the user is logged in. we will remove this in production.
 router.get('/profiletest', (req, res) => {
    res.send(req.user)
 })
