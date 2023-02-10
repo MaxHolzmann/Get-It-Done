@@ -1,9 +1,3 @@
-/*************************************************
-* 
-* The purpose of this file is to create "one-to-many" 
-* and "one-to-one" relationships with your models
-*
-**************************************************/
 const User = require('./User');
 const Tasks = require('./Tasks');
 
@@ -16,4 +10,5 @@ User.hasMany(Tasks, {
     onDelete: 'CASCADE'
 });
 
-module.exports = { User, Tasks };
+module.exports = {User, Tasks};
+
