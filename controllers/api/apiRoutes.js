@@ -1,30 +1,73 @@
 const router = require('express').Router();
-const { YourCustomModel } = require('../../models');
+const { User, Task } = require('../../models');
 
-router.post('/', async (req, res) => {
+//find tasks from any user
+router.get('/tasks', async (req, res) => {
   try {
-    res.status(200).json({message: "Success"})
+    const allTasks = await Task.findAll({
+      include: [{model: User}]
+    })
+    res.status(200).json(allTasks)
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err)
   }
-});
+})
 
-router.post('/login', async (req, res) => {
+//returns all tasks from a user
+router.get('/tasks/:id', async (req, res) => {
   try {
-    res.status(200).json({message: "logged in"})
+    const allUsersTasks = await Task.findAll({
+      where: {
+        user_id: req.params.id
+      }
+    })
+    res.status(200).json(allUsersTasks)
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err)
   }
-});
+})
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+//create a new task
+router.post('/tasks/:id', async (req, res) => {
+  try {
+    const newTask = await Task.create({
+      task: req.body.task,
+      user_id: req.params.id
+    })
+    res.status(200).json(newTask)
+  } catch (err) {
+    res.status(500).json(err)
   }
-});
+})
+
+//edit a task
+router.put('/tasks/:id', async (req, res) => {
+  try {
+    const updateTask = await Task.update({
+      task: req.body.task
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(200).json(updateTask)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+router.delete('/tasks/:id', async (req, res) => {
+  try {
+    await Task.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(200).json({message: "Deleted the task!"})
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
 
 module.exports = router;
