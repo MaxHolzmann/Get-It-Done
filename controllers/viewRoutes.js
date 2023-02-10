@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage', { 
+    res.render('homepage', { user: req.user
     });
   } catch (err) {
     res.status(500).json(err);
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
 router.get('/todo', async (req, res) => {
  try {
-  res.render('todo', {
+  res.render('todo', { user: req.user
 
   })
  } catch (err) {
