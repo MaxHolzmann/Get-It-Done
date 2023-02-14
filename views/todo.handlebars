@@ -1,13 +1,12 @@
-{{#if user}}
 <div class="container">
 
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
       <h1 class="page-header text-center">Get It Done</h1>
       <h3>Create A Daily Task</h3>
-      <form action="/api/create" method="POST">
+      <form action="/api/tasks/{{user_id}}" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Enter here..." id="task" autofocus>
+          <input type="text" class="form-control" placeholder="Enter here..." id="task" name="task" autofocus>
           <span class="input-group-btn">
             <button id="create" class="btn btn-primary" type="button" name="submit">Submit</button>
           </span>
@@ -58,4 +57,3 @@
   {{/if}}
 
 </div>
-{{/if}}
