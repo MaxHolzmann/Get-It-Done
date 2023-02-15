@@ -1,5 +1,5 @@
 const User = require('./User');
-const Tasks = require('./Tasks');
+const Tasks = require('./Task');
 
 Tasks.belongsTo(User, {
     foreignKey: 'user_id'
