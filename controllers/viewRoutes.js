@@ -43,8 +43,6 @@ router.get('/todo', async (req, res) => {
     complete: false
   }
   })
- console.log(usersCompleteTasks)
- console.log(usersUnfinishedTasks)
 
   res.render('todo', { user: req.user, userId: userId, complete:  usersCompleteTasks, unfinished: usersUnfinishedTasks, hasTasks: userHasTasks
   })
@@ -52,5 +50,21 @@ router.get('/todo', async (req, res) => {
   res.status(500).json(err)
  }
 })
+
+router.get('/edit/:id', async (req, res) => {
+  try {
+
+    const taskToEdit = await Tasks.findAll({
+      where: {
+        id: req.params.id
+      }
+    })
+
+    res.render('edit', { user: req.user, task: taskToEdit[0].dataValues
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

@@ -40,19 +40,18 @@
       <div class="col-lg-6 col-lg-offset-3">
         <hr>
         <h3>Completed Tasks:</h3>
-        {{#each tasks}}
-          {{#if completed}}
+        {{#each complete as |completed|}}
             <div class="task clearfix">
-              <span>{{task}}</span>
-              <div class="btn-group pull-right" role="group" aria-label="...">
-                <button data-id="{{_id}}" type="button" class="btn btn-danger delcomplete">Delete</button>
+              <span>{{{completed.dataValues.task}}}</span>
+              <div data-taskid="{{completed.dataValues.id}}" class="btn-group pull-right" role="group" aria-label="...">
+                <button id="del-btn" data-id="" type="button" class="btn btn-danger delcomplete">Delete</button>
               </div>
             </div>
-          {{/if}}
         {{/each}}
       </div>
     </div>
 {{/if}}
 <script src="./js/createTask.js"></script>
 <script src="./js/deleteTask.js"></script>
+<script src="./js/editTask.js"></script>
 </div>

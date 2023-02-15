@@ -89,6 +89,23 @@ router.put('/tasks/:id', async (req, res) => {
   }
 })
 
+router.put('/tasks/complete/:id', async (req, res) => {
+  try {
+    const updateTask = await Tasks.update({
+      complete: true
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(200).json(updateTask)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+
+
 //delete a task
 router.delete('/tasks/:id', async (req, res) => {
   try {
