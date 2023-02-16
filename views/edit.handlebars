@@ -1,0 +1,19 @@
+{{!-- Editing page for editing tasks --}}
+
+<link rel="stylesheet" href="../css/style.css">
+{{#if user}}
+{{#if task}}
+<h1 class="display-2 text-center mt-2">Edit Your Task</h1>
+<div id="container" class="container bg-light mt-5 p-4">
+<div class="col text-center">
+    <form id="edit-task">
+    <p class="fs-1">Task Body</p>
+    <textarea data-id="{{task.id}}" class="form-control" id="task-body" cols="30" rows="10">{{task.task}}</textarea>
+    <div></div>
+    <button class="btn btn-primary fs-2 ps-4 pe-4 m-3" type="submit">Update</button>
+    </form>
+</div>
+</div>
+<script src="../js/editTaskPage.js"></script>
+{{/if}}
+{{/if}}
