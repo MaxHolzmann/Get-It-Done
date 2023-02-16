@@ -1,38 +1,3 @@
-# Get It Done!
-
-## Description
-
-An to do list application that helps the user be organized with their day to day tasks.
-
-## Badges
-
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/MaxHolzmann/Get-It-Done">
-
-<img alt="GitHub" src="https://img.shields.io/github/license/DJonJasmine/Generate-A-Unique-Password">
-
-## Visuals
-
-
-## Usage
-
-To use the application npm is required. Once npm is installed open the powershell terminal, log into mysql. 
-
-Pull the databases by using commands below
-
-```
-SOURCE db/schema.sql
-```
-```
-node seeds/seed.js
-```
-
-To initiate the application use the command 
-
-```
-node server.js
-```
-## License
-
 MIT License
 
 Copyright (c) 2023 Maximilian Holzmann

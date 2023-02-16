@@ -29,6 +29,11 @@ Task.init(
         type: DataTypes.DATEONLY,
         allowNull: false,
         defaultValue: DataTypes.NOW
+    },
+    complete: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   },
   {
@@ -37,7 +42,7 @@ Task.init(
     sequelize,
     timestamps: false,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'task',
   }
 );
