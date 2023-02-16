@@ -1,3 +1,4 @@
+// function for completing a task
 const completeTask = async (e) => {
     e.preventDefault();
 
@@ -16,6 +17,7 @@ const completeTask = async (e) => {
     }
 }
 
+//when pressing the edit button, this function sends the user to the proper edit page.
 const goToEdit = (e) => {
     e.preventDefault();
     console.log('click')

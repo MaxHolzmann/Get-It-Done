@@ -1,3 +1,5 @@
+// function & listener for the edit task page
+
 const editTaskForm = document.getElementById('edit-task');
 
 const editTask = async (e) => {

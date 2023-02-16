@@ -1,3 +1,5 @@
+//listener & function for creating a task on the To Do page
+
 const addTask = document.getElementById('userId')
 
 const newTask = async (e) => {
@@ -25,18 +27,5 @@ const newTask = async (e) => {
     }
 
 }
-
-// const goToEdit = (e) => {
-//     e.preventDefault();
-//     console.log('click')
-//     const blogId = Number(e.target.parentNode.dataset.blogid)
-//     document.location.replace('/edit/' + blogId)
-// }
-
-// window.addEventListener('DOMContentLoaded', (event) => {
-//     document.querySelectorAll("#edit-btn").forEach(el => {
-//         el.addEventListener('click', goToEdit);
-//     });
-// });
 
 addTask.addEventListener('submit', newTask)

@@ -1,3 +1,5 @@
+//listener & function for deleting a task on the To Do page
+
 const deleteTask = async (e) => {
     e.preventDefault();
 

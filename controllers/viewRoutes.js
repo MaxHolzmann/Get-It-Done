@@ -18,6 +18,7 @@ router.get('/todo', async (req, res) => {
 
   let userHasTasks;
 
+  //check if user has any tasks
   const userCheckTasks = await Tasks.findAll({
     where: {
       user_id: userId
@@ -30,6 +31,7 @@ router.get('/todo', async (req, res) => {
     userHasTasks = true;
   }
 
+  //gets all user's completed tasks
   const usersCompleteTasks = await Tasks.findAll({
     where: {
       user_id: userId,
@@ -37,6 +39,7 @@ router.get('/todo', async (req, res) => {
     }
  })
 
+  //gets all user's unfinished tasks
   const usersUnfinishedTasks = await Tasks.findAll({
    where: {
     user_id: userId,

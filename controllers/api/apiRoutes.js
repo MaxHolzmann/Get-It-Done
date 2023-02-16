@@ -13,7 +13,7 @@ router.get('/tasks', async (req, res) => {
   }
 })
 
-//returns all tasks from a user
+//returns all tasks from a single user
 router.get('/tasks/:id', async (req, res) => {
   try {
     const allUsersTasks = await Tasks.findAll({
@@ -27,6 +27,7 @@ router.get('/tasks/:id', async (req, res) => {
   }
 })
 
+//get all completed tasks from a single user
 router.get('/tasks/complete/:id', async (req, res) => {
   try {
     const allUsersTasks = await Tasks.findAll({
@@ -41,6 +42,7 @@ router.get('/tasks/complete/:id', async (req, res) => {
   }
 })
 
+//get all unfinished tasks from a single user
 router.get('/tasks/unfinished/:id', async (req, res) => {
   try {
     const allUsersTasks = await Tasks.findAll({
@@ -89,6 +91,7 @@ router.put('/tasks/:id', async (req, res) => {
   }
 })
 
+//completes task in "id" url parameter
 router.put('/tasks/complete/:id', async (req, res) => {
   try {
     const updateTask = await Tasks.update({
