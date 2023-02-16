@@ -8,7 +8,7 @@ An to do list application that helps the user be organized with their day to day
 
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/MaxHolzmann/Get-It-Done">
 
-<img alt="GitHub" src="https://img.shields.io/github/license/DJonJasmine/Generate-A-Unique-Password">
+<img alt="GitHub" src="https://img.shields.io/github/license/MaxHolzmann/Get-It-Done">
 
 ## Visuals
 
